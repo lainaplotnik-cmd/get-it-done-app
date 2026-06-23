@@ -297,33 +297,15 @@ function SomedayReview({
 
 // Today's real data (pulled fresh for this build)
 const TODAY_WEATHER = {
-  summary: "Sunny, upper 70s",
-  high: 79,
+  summary: "Light rain, low 70s",
+  high: 71,
   low: 62,
-  rain: false,
-  wind: "SW ~10 mph",
-  outfit: "Light layers — a tee or light top is fine. No umbrella needed.",
-  icon: "☀️"
+  rain: true,
+  wind: "NE ~10 mph",
+  outfit: "Bring an umbrella — 45% chance of rain. Light jacket, comfortable layers.",
+  icon: "🌧️"
 };
-const TODAY_EVENTS = [{
-  id: "e1",
-  title: "Laina & Andy Meet and Greet",
-  start: "2026-06-22T10:00",
-  end: "2026-06-22T11:00",
-  type: "meeting"
-}, {
-  id: "e2",
-  title: "Daniela x Laina",
-  start: "2026-06-22T11:00",
-  end: "2026-06-22T11:30",
-  type: "meeting"
-}, {
-  id: "e3",
-  title: "Laina Plotnik - Field Marketing Candidate",
-  start: "2026-06-22T16:00",
-  end: "2026-06-22T16:30",
-  type: "interview"
-}];
+const TODAY_EVENTS = [];
 const CSS = `
   @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&family=Bebas+Neue&display=swap');
   @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
@@ -1502,7 +1484,7 @@ function App() {
       fontSize: 22,
       color: "#2D1B4E"
     }
-  }, "GET IT DONE")), /*#__PURE__*/React.createElement("button", {
+  }, "ONE THING")), /*#__PURE__*/React.createElement("button", {
     onClick: () => setShowAddMenu(!showAddMenu),
     style: {
       background: "#C084FC",
@@ -2027,7 +2009,4 @@ function App() {
       cursor: "pointer"
     }
   }, "Add Task")))));
-}
-function Gate() {
-  return React.createElement(App);
 }
