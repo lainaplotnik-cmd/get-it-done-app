@@ -2029,15 +2029,5 @@ function App() {
   }, "Add Task")))));
 }
 function Gate() {
-  const [unlocked, setUnlocked] = React.useState(() => {
-    try {
-      return sessionStorage.getItem("focus_unlocked") === "1";
-    } catch {
-      return false;
-    }
-  });
-  if (!unlocked) return React.createElement(LockScreen, {
-    onUnlock: () => setUnlocked(true)
-  });
   return React.createElement(App);
 }
