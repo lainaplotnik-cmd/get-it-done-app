@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no" />
+<title>Get It Done</title>
+
+<link rel="manifest" href="manifest.json" />
+<meta name="theme-color" content="#FDF8FF" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="Get It Done" />
+<link rel="apple-touch-icon" href="icon-192.png" />
+
+<style>
+  html, body { margin:0; padding:0; background:#FDF8FF; -webkit-tap-highlight-color: transparent; }
+  body { overscroll-behavior: none; }
+  #root { min-height: 100vh; }
+  #fallback { font-family: sans-serif; padding: 24px; color: #2D1B4E; }
+</style>
+</head>
+<body>
+<div id="root">
+  <div id="fallback">Loading...</div>
+</div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+
+<script src="app.compiled.js"></script>
+
+<script>
+  try {
+    var root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(React.createElement(Gate));
+  } catch (e) {
+    document.getElementById("root").innerHTML =
+      '<div style="font-family:sans-serif;padding:24px;color:#7F1D1D;">' +
+      '<b>Something went wrong loading the app.</b><br><br>' +
+      'Error: ' + (e && e.message ? e.message : e) +
+      '</div>';
+  }
+</script>
+
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(()=>{});
+    });
+  }
+</script>
+</body>
+</html>
